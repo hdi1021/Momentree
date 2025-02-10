@@ -1,11 +1,12 @@
+import React from 'react';
 import { StyleSheet, Text, View ,Image} from 'react-native';
 
 
 module.exports = {
-    assets: ['../assets/fonts/'], // 폰트 경로 지정
+    assets: ['../assets/fonts/'],
   };
   
-export default function Main() {
+const DailyWrite = ({route,navigation}) => {
 
   console.log("start")
 
@@ -13,11 +14,11 @@ export default function Main() {
     <View style={{flex:1}}>
       <View style={styles.Header}>
         <View style={styles.coin}>
-          <Image source={require("./asset/start.png")} style={styles.star}/> 
+          <Image source={require("../assets/start.png")} style={styles.star}/> 
           <Text style={styles.coinCount}>0</Text>
         </View>
-        <Image source={require('./assets/search.png')} style={styles.search}/>
-        <Image source={require('./assets/alarm.png')} style={styles.alram}/>
+        <Image source={require('../assets/search.png')} style={styles.search}/>
+        <Image source={require('../assets/alarm.png')} style={styles.alram}/>
       </View>
 
       <View style={styles.body}>
@@ -28,6 +29,7 @@ export default function Main() {
     </View>
   );
 }
+export default DailyWrite;
 
 const styles = StyleSheet.create({
   Header:{
