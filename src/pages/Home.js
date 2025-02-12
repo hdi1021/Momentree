@@ -1,12 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View ,Image, Touchable} from 'react-native';
+import { useEffect } from 'react';
+import { StyleSheet, Text, View ,Image, TouchableOpacity} from 'react-native';
 
 
-
-module.exports = {
-    assets: ['../assets/fonts/'],
-  };
-  
 const Home = ({route,navigation}) => {
 
   console.log("start")
@@ -33,9 +29,7 @@ const Home = ({route,navigation}) => {
         <Text>2025년 2월 6일</Text>
       </View>
       <View style={styles.footer}></View>
-      <Touchable onPress={()=> navigation.navigate("DailyWrite")}>
-
-      </Touchable>
+      <TouchableOpacity onPress={()=> navigation.navigate("DailyWrite")}/>
     </View>
   );
 }
