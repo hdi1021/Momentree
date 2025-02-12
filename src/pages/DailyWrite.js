@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View ,Image, TextInput, Touchable} from 'react-native';
+import { StyleSheet, Text, View ,Image, TextInput, TouchableOpacity} from 'react-native';
 
 const DailyWrite = ({route,navigation}) => {
 
@@ -12,20 +12,12 @@ const DailyWrite = ({route,navigation}) => {
         <Text>2024년 2월 11일</Text>
       </View>
       <View >
-        <Touchable>
+        <TouchableOpacity>
           <Image />
-        </Touchable>
+        </TouchableOpacity>
       </View>
       <View>
         <TextInput/>
-      </View>
-      <View>
-        <Touchable/>
-        <Touchable/>
-        <Touchable/>
-        <Touchable/>
-        <Touchable/>
-        <Touchable/>
       </View>
     </View>
   );

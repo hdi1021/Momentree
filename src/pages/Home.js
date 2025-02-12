@@ -10,10 +10,6 @@ const Home = ({route,navigation}) => {
 
   }, []);
 
-  const moveDailyWriteScreen = () => {
-    navigation.navigate('DailyWrite');
-}
-
   return (
     <View style={{flex:1}}>
       <View style={styles.Header}>
@@ -27,9 +23,10 @@ const Home = ({route,navigation}) => {
 
       <View style={styles.body}>
         <Text>2025년 2월 6일</Text>
+        <TouchableOpacity style={{height: "25%"}} onPress={()=> navigation.navigate("DailyWrite")}/>
       </View>
       <View style={styles.footer}></View>
-      <TouchableOpacity onPress={()=> navigation.navigate("DailyWrite")}/>
+      
     </View>
   );
 }

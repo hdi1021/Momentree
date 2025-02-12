@@ -1,29 +1,32 @@
-import React from 'react';
-import { useEffect } from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { Ionicons } from 'react-native-vector-icons';
 import Home from './pages/Home';
 import DailyWrite from './pages/DailyWrite';
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
-const App = () => {
-
-  useEffect(() => {
-    console.log("App 실행됨!");
-  }, []); // ✅ 의존성 배열 추가해서 처음 한 번만 실행되게 하기
-  
-  console.log("start");
-  console.log(Home);
-
+export default function App() {
   return (
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="DailyWrite" component={DailyWrite} />
-        </Stack.Navigator>
-      </NavigationContainer>
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => {
+            let iconName;
+            if (route.name === 'Home') {
+              iconName = 'home';
+            } else if (route.name === 'DailyWrite') {
+              iconName = 'pencil';
+            }
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+        })}
+      >
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="DailyWrite" component={DailyWrite} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
-};
+}
 
-export default App;
