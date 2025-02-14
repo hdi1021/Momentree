@@ -21,6 +21,7 @@ export default function App() {
             }
             return <Ionicons name={iconName} size={size} color={color} />;
           },
+          tabBarStyle: route.name === 'DailyWrite' ? { display: 'none' } : {}
         })}
       >
         <Tab.Screen name="Home" component={Home} />
