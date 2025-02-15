@@ -25,7 +25,6 @@ const Home = ({route,navigation}) => {
         <Text>2025년 2월 6일</Text>
         <TouchableOpacity style={{height: "25%"}} onPress={()=> navigation.navigate("DailyWrite")}/>
       </View>
-      <View style={styles.footer}></View>
       
     </View>
   );
@@ -40,10 +39,6 @@ const styles = StyleSheet.create({
   body:{
     flex:6.5,
     backgroundColor: "#FAFAFA",
-  },
-  footer:{
-    flex:0.8,
-
   },
   coin:{
     width:'15%',
