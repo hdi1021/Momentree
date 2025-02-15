@@ -1,9 +1,10 @@
 import React from 'react';
-import { Dimensions,StyleSheet, Text, View ,Image, TextInput, TouchableOpacity} from 'react-native';
+import { Dimensions,StyleSheet, Text, View ,Image, TextInput, TouchableOpacity,Modal} from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { getFormattedDate } from '../hoooks/getFormettedDate';
 import { useFonts } from "expo-font";
 import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
 
 const { height } = Dimensions.get('window');
 
@@ -15,6 +16,8 @@ const DailyWrite = ({route,navigation}) => {
   });
   
   if (!fontsLoaded) return null;
+
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <SafeAreaProvider>
@@ -40,10 +43,34 @@ const DailyWrite = ({route,navigation}) => {
             </View>
           </View>
           <View style={styles.imojiView}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => setModalVisible(true)}
+            >
               <Image source={require("../assets/emoji/기쁘미.png")} style ={styles.imoji}/>
             </TouchableOpacity>
           </View>
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+              Alert.alert('Modal has been closed.');
+              setModalVisible(!modalVisible);
+            }}
+          >
+            <View // 얘가 모달 배경임
+              style={{flex:1, justifyContent:"flex-end"}}
+              onTouchEnd={() => setModalVisible(false)} // 터치하면 모달 끔
+            >
+              <View style={{height:height*0.7, backgroundColor:"white"}}>
+                <TouchableOpacity
+                  style={{flex:1}}
+                  onPress={() => setModalVisible(!modalVisible)}>
+                  <Text style={styles.textStyle}>모달 사라져</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Modal>
           <View style={styles.inputTextArea}>
             <TextInput 
             placeholder='오늘 하루를 글로 남겨보세요'
