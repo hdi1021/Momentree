@@ -22,7 +22,22 @@ const DailyWrite = ({route,navigation}) => {
         <StatusBar />
         <View style={{flex:1}}>
           <View style={styles.header}>
-            <Text style={styles.headerText}>{Date}</Text>
+            <View style={styles.backButton}>
+              <TouchableOpacity 
+                style={{flex:0.5, minWidth:20,maxWidth:30, minHeight:20,maxHeight:30,marginRight:10}}
+                onPress={() => navigation.navigate("Home")}
+              >
+                <Image/>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.headerTextView}>
+              <Text style={styles.headerText}>{Date}</Text>
+            </View>
+            <View style={styles.writeFinish}>
+              <TouchableOpacity style={{flex:0.5, minWidth:30,maxWidth:40, minHeight:30,maxHeight:40}}>
+                <Image/>
+              </TouchableOpacity>
+            </View>
           </View>
           <View style={styles.imojiView}>
             <TouchableOpacity>
@@ -56,12 +71,26 @@ const styles = StyleSheet.create({
   header : {
     height : height*0.1,
     backgroundColor : "#FAFAFA",
-    justifyContent : 'center',
-    alignItems: "center",
+    flexDirection: "row"
   },
   headerText:{
     fontFamily : "Font",
     fontSize : 20,
+  },
+  headerTextView:{
+    flex:3,
+    justifyContent : 'center',
+    alignItems: "center",
+  },
+  backButton:{
+    flex:1,
+    justifyContent : 'center',
+    alignItems: "center",
+  },
+  writeFinish:{
+    flex:1,
+    justifyContent : 'center',
+    alignItems: "center",
   },
   imojiView : {
     flex : 1,
