@@ -1,6 +1,12 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { StyleSheet, Text, View ,Image, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View ,Image, TouchableOpacity,Dimensions} from 'react-native';
+import {Calendar} from 'react-native-calendars'
+
+
+const baseDisignScreenSize = 375;
+
+
 
 
 const Home = ({route,navigation}) => {
@@ -22,8 +28,9 @@ const Home = ({route,navigation}) => {
       </View>
 
       <View style={styles.body}>
-        <Text>2025년 2월 6일</Text>
-        <TouchableOpacity style={{height: "25%"}} onPress={()=> navigation.navigate("DailyWrite")}/>
+        <Text style={styles.title}>2025년 2월 6일</Text>
+        <Image source={require('../assets/emoji/날짜 화살표.png')} style={styles.arrow}></Image>{/* 달력 화살표 */}
+        {/* <TouchableOpacity style={{height: "25%"}} onPress={()=> navigation.navigate("DailyWrite")}/> */}
       </View>
       
     </View>
@@ -77,6 +84,16 @@ const styles = StyleSheet.create({
     marginLeft:310,
     marginTop: -20,
     resizeMode: "contain",
+  },
+  title:{
+    marginTop: 20,
+    marginLeft:100,
+    fontSize:30,
+    fontWeight:600,
+
+  },
+  arrow:{
+
   },
 
 });
