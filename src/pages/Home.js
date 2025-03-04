@@ -7,8 +7,6 @@ import {Calendar} from 'react-native-calendars'
 const baseDisignScreenSize = 375;
 
 
-
-
 const Home = ({route,navigation}) => {
 
   console.log("start")
@@ -28,9 +26,22 @@ const Home = ({route,navigation}) => {
       </View>
 
       <View style={styles.body}>
-        <Text style={styles.title}>2025년 2월 6일</Text>
-        <Image source={require('../assets/emoji/날짜 화살표.png')} style={styles.arrow}></Image>{/* 달력 화살표 */}
         {/* <TouchableOpacity style={{height: "25%"}} onPress={()=> navigation.navigate("DailyWrite")}/> */}
+        <View>
+        <Calendar style={{width: 370 , height: 630}}>
+            current={'2025-03-04'}
+            onDayPress{(day) =>{
+              console.log('선택된 날 ', day);
+          }} 
+            monthFormat ={'yyyy MM'}
+            hideExtraDays ={true}
+            firstDay={1}
+            theme={{
+            textDayFontSize: 16, // 날짜 폰트 크기 조정
+            textDayStyle: { textAlign: "center" }, // 중앙 정렬
+          }}
+        </Calendar>
+        </View>
       </View>
       
     </View>
@@ -93,7 +104,10 @@ const styles = StyleSheet.create({
 
   },
   arrow:{
-
+    width:25,
+    height:23,
+    marginLeft:275,
+    marginTop:-25
   },
 
 });
