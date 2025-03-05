@@ -1,7 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import { Calendar } from 'react-native-calendars';
+import { Calendar, LocaleConfig } from 'react-native-calendars';
 import { format, addDays, startOfToday } from "date-fns";
+LocaleConfig.locales['fr'] = {
+  monthNames: [
+    '01월', '02월', '03월', '04월', '05월', '06월',
+    '07월', '08월', '09월', '10월', '11월', '12월'
+  ],
+  monthNamesShort: [
+    '01월', '02월', '03월', '04월', '05월', '06월',
+    '07월', '08월', '09월', '10월', '11월', '12월'
+  ],
+  dayNames: [
+    '일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'
+  ],
+  dayNamesShort: [
+    '일', '월', '화', '수', '목', '금', '토'
+  ],
+};
+LocaleConfig.defaultLocale = 'fr';
 
 const Home = ({ navigation }) => {
   // 오늘 날짜 계산
@@ -63,12 +80,12 @@ const Home = ({ navigation }) => {
         <Image source={require('../assets/alarm.png')} style={styles.alram} />
       </View>
 
-      {/* 제목은 필요 없고, 캘린더에서 월과 년도 자동 변경 */}
       <View style={styles.body}>
         <Calendar 
           style={styles.calendar} 
           markedDates={markedSelectedDates}
-          monthFormat={'yyyy년 MM월'} // 캘린더 헤더에 표시될 연도 및 월 형식
+          monthFormat={'yyyy년 MM월'} 
+          enableSwipeMonths
           theme={{
             selectedDayBackgroundColor: '#009688',
             arrowColor: '#009688',
@@ -78,11 +95,26 @@ const Home = ({ navigation }) => {
             monthTextColor:'#454545',
             textMonthFontSize:20,
             textMonthFontWeight:'bold',
+            dayTextColor:'#454545',
+            calendarBackground:'#FAFAFA',
+            // 날짜 간격을 늘리는 부분
+            'stylesheet.day.basic': {
+              base: {
+                paddingVertical: 20, // 날짜의 세로 간격
+                paddingHorizontal: 5, // 날짜의 가로 간격
+                justifyContent: 'center',
+                alignItems: 'center',
+              },
+              text: {
+                fontSize: 16,
+                color: '#454545',
+              },
+            },
           }} 
           onDayPress={(day) => {
             setSelectedDate(day.dateString);
           }} 
-          onMonthChange={handleMonthChange} // 월 변경 시 호출
+          onMonthChange={handleMonthChange} 
         />
       </View>
     </View>
@@ -120,6 +152,7 @@ const styles = StyleSheet.create({
     marginTop: 2,
     fontWeight: '700',
     fontSize: 20,
+    color:'#454545'
   },
   search: { 
     width: '18%', 
@@ -138,5 +171,6 @@ const styles = StyleSheet.create({
   calendar: {
     width:370,
     height:670,
+    backgroundColor:'#FAFAFA',
   }
 });
