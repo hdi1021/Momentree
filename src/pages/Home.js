@@ -66,14 +66,18 @@ const Home = ({ navigation }) => {
       {/* 제목은 필요 없고, 캘린더에서 월과 년도 자동 변경 */}
       <View style={styles.body}>
         <Calendar 
-          style={{width:370, height:670}} 
+          style={styles.calendar} 
           markedDates={markedSelectedDates}
-          monthFormat={'yyyy MM'} // 캘린더 헤더에 표시될 연도 및 월 형식
+          monthFormat={'yyyy년 MM월'} // 캘린더 헤더에 표시될 연도 및 월 형식
           theme={{
             selectedDayBackgroundColor: '#009688',
             arrowColor: '#009688',
             dotColor: '#009688',
             todayTextColor: '#009688',
+            arrowColor:'#454545',
+            monthTextColor:'#454545',
+            textMonthFontSize:20,
+            textMonthFontWeight:'bold',
           }} 
           onDayPress={(day) => {
             setSelectedDate(day.dateString);
@@ -131,4 +135,8 @@ const styles = StyleSheet.create({
     marginTop: -20, 
     resizeMode: "contain" 
   },
+  calendar: {
+    width:370,
+    height:670,
+  }
 });
