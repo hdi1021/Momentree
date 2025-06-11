@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from 'react-native-vector-icons';
-import Home from './pages/Home';
+import Home from './pages/Home/Home';
 import DailyWrite from './pages/DailyWrite';
 
 const Tab = createBottomTabNavigator();
