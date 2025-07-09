@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions,StyleSheet, Text, View ,Image, TextInput, TouchableOpacity,Modal} from 'react-native';
+import { Dimensions,StyleSheet, Text, View ,Image, TextInput, TouchableOpacity,Modal,modalVisible} from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { getFormattedDate } from '../hoooks/getFormettedDate';
 import { useFonts } from "expo-font";

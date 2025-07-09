@@ -3,11 +3,15 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from 'react-native-vector-icons';
 import Home from './pages/Home/Home';
 import DailyWrite from './pages/DailyWrite';
+import Login from './pages/Login/Login';
+import SplashScreen from "react-native-splash-screen";
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+  
   return (
+    
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={({ route }) => ({
@@ -21,11 +25,13 @@ export default function App() {
             }
             return <Ionicons name={iconName} size={size} color={color} />;
           },
-          tabBarStyle: route.name === 'DailyWrite' ? { display: 'none' } : {}
+          tabBarStyle: route.name === 'DailyWrite' ? { display: 'none' } : {},
+          tabBarStyle: route.name === 'Login' ? { display: 'none' } : {}
         })}
       >
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="DailyWrite" component={DailyWrite} />
+        <Tab.Screen name="Login" component={Login}/>
       </Tab.Navigator>
     </NavigationContainer>
   );
