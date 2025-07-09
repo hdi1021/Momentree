@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         marginTop: 110,
         marginLeft: 30,
-        fontSize: 15,
+        fontSize: 13,
         fontWeight: '300',
         color: '#909090',
     },
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         borderColor: '#D2D2D2',
         borderRadius: 10,
         paddingLeft: 40,
-        fontSize: 13,
+        fontSize: 11,
     },
     PassWordInputBox: {
         marginTop: 10,
@@ -51,14 +51,14 @@ const styles = StyleSheet.create({
         borderColor: '#D2D2D2',
         borderRadius: 10,
         paddingLeft: 15,
-        fontSize: 13,
+        fontSize: 11,
         paddingLeft: 40,
     },
     PassWordTitle: {
         textAlign: 'left',
-        marginTop: 40,
+        marginTop: 30,
         marginLeft: 30,
-        fontSize: 15,
+        fontSize: 13,
         fontWeight: '300',
         color: '#909090',
     },
@@ -71,10 +71,34 @@ const styles = StyleSheet.create({
     },
     PassWordIcon: {
         position: 'absolute',
-        top: 83,
+        top: 70,
         left: 49,
         width: 12,
         height: 15,
+    },
+    checkbox: {
+        marginTop: 10,
+        marginLeft: 30,
+    },
+    login:{
+        marginLeft: 10,
+        fontSize: 12,
+        color: '#C7C7C7'
+    },
+    LoginButton: {
+        marginTop: 45,
+        marginLeft: 30,
+        marginRight: 30,
+        height: 50,
+        backgroundColor: '#6CC7B9',
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    LoginText: {
+        fontSize: 16,
+        color: '#FFFFFF',
+        fontWeight: 'bold',
     },
 
 });

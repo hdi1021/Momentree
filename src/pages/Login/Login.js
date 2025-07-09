@@ -3,6 +3,7 @@ import { Text, View, Image, TouchableOpacity,TextInput} from 'react-native';
 import { useState } from 'react';
 import styles from './loginstyle'
 import { SafeAreaView } from 'react-native-safe-area-context';
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 const Login = () => {
     // 상태 관리용 훅   
@@ -36,7 +37,20 @@ const Login = () => {
                 />
             </View>
             <View>
-                
+                <BouncyCheckbox
+                      style={styles.checkbox}
+                      size={15}
+                      fillColor="#6CC7B9"
+                      unfillColor="#FFFFFF"
+                      text="Custom Checkbox"
+                      textComponent={<Text style={styles.login}>로그인 상태 유지</Text>}
+                      onPress={(isChecked) => console.log(isChecked)}     
+                />
+            </View>
+            <View>
+                <TouchableOpacity style={styles.LoginButton}>
+                    <Text style={styles.LoginText}>로그인</Text>
+                </TouchableOpacity>
             </View>
         </SafeAreaView>
     );
